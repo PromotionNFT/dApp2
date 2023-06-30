@@ -7,7 +7,7 @@ import axios from 'axios'
 
 import Loader from 'react-loader-spinner'
 
-import NFT from '../utils/EternalNFT.json'
+import NFT from '../utils/GMApelion.json'
 
 const mint = () => {
 	const [mintedNFT, setMintedNFT] = useState(null)
@@ -48,13 +48,13 @@ const mint = () => {
 			let chainId = await ethereum.request({ method: 'eth_chainId' })
 			console.log('Connected to chain:' + chainId)
 
-			const rinkebyChainId = '0x4'
+			const polygonChainId = '0x89'
 
 			const devChainId = 1337
 			const localhostChainId = `0x${Number(devChainId).toString(16)}`
 
-			if (chainId !== rinkebyChainId && chainId !== localhostChainId) {
-				alert('You are not connected to the Rinkeby Testnet!')
+			if (chainId !== polygonChainId && chainId !== localhostChainId) {
+				alert('You are not connected to the Polygon Network!')
 				return
 			}
 
@@ -73,12 +73,12 @@ const mint = () => {
 		let chainId = await ethereum.request({ method: 'eth_chainId' })
 		console.log('Connected to chain:' + chainId)
 
-		const rinkebyChainId = '0x4'
+		const polygonChainId = '0x89'
 
 		const devChainId = 1337
 		const localhostChainId = `0x${Number(devChainId).toString(16)}`
 
-		if (chainId !== rinkebyChainId && chainId !== localhostChainId) {
+		if (chainId !== polygonChainId && chainId !== localhostChainId) {
 			setCorrectNetwork(false)
 		} else {
 			setCorrectNetwork(true)
@@ -104,7 +104,7 @@ const mint = () => {
 					signer
 				)
 
-				let nftTx = await nftContract.createEternalNFT()
+				let nftTx = await nftContract.mint()
 				console.log('Mining....', nftTx.hash)
 				setMiningStatus(0)
 
@@ -116,7 +116,7 @@ const mint = () => {
 				let tokenId = value.toNumber()
 
 				console.log(
-					`Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTx.hash}`
+					`Mined, see transaction: https://polygonscan.com/tx/${nftTx.hash}`
 				)
 
 				getMintedNFT(tokenId)
@@ -161,7 +161,7 @@ const mint = () => {
 	return (
 		<div className='flex flex-col items-center pt-32 bg-[#0B132B] text-[#d3d3d3] min-h-screen'>
 			<Head>
-				<title>Eternal NFT</title>
+				<title>Apelion Citizen</title>
 				<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 			</Head>
 			<div className='trasition hover:rotate-180 hover:scale-105 transition duration-500 ease-in-out'>
@@ -176,7 +176,7 @@ const mint = () => {
 				</svg>
 			</div>
 			<h2 className='text-3xl font-bold mb-20 mt-12'>
-				Mint your Eternal Domain NFT!
+				Mint your Apelion Citizen!
 			</h2>
 			{currentAccount === '' ? (
 				<button
@@ -195,7 +195,7 @@ const mint = () => {
 			) : (
 				<div className='flex flex-col justify-center items-center mb-20 font-bold text-2xl gap-y-3'>
 					<div>----------------------------------------</div>
-					<div>Please connect to the Rinkeby Testnet</div>
+					<div>Please connect to the Polygon Network</div>
 					<div>and reload the page</div>
 					<div>----------------------------------------</div>
 				</div>
@@ -203,7 +203,7 @@ const mint = () => {
 
 			<div className='text-xl font-semibold mb-20 mt-4'>
 				<a
-					href={`https://rinkeby.rarible.com/collection/${nftContractAddress}`}
+					href={`https://rarible.com/AlienApeInvasionClub`}
 					target='_blank'
 				>
 					<span className='hover:underline hover:underline-offset-8 '>
