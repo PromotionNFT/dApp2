@@ -190,7 +190,7 @@ const mint = () => {
 					className='text-2xl font-bold py-3 px-12 bg-black shadow-lg shadow-[#6FFFE9] rounded-lg mb-10 hover:scale-105 transition duration-500 ease-in-out'
 					onClick={mintCharacter}
 				>
-					Mint Character
+					Mint
 				</button>
 			) : (
 				<div className='flex flex-col justify-center items-center mb-20 font-bold text-2xl gap-y-3'>
