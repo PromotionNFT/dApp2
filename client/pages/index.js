@@ -108,16 +108,16 @@ const mint = () => {
 //					return
 				}
 
-/*				if (ethereum) {
+				if (ethereum) {
 					const provider = new ethers.providers.Web3Provider(ethereum)
 					const signer = provider.getSigner()
 					const nftContract = new ethers.Contract(
 						nftContractAddress,
 						NFT.abi,
 						signer
-					)*/
+					)
 
-				let nftTx = await nftContract.mint()
+//				let nftTx = await nftContract.mint()
 				console.log('Mining....', nftTx.hash)
 				setMiningStatus(0)
 
