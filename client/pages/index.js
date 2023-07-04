@@ -93,7 +93,7 @@ const mint = () => {
 	// Creates transaction to mint NFT on clicking Mint Character button
 	const mintCharacter = async () => {
 		try {
-			const { ethereum } = window
+				const { ethereum } = window
 
 				let chainId = await ethereum.request({ method: 'eth_chainId' })
 				console.log('Connected to chain:' + chainId)
@@ -108,14 +108,14 @@ const mint = () => {
 //					return
 				}
 
-				if (ethereum) {
+/*				if (ethereum) {
 					const provider = new ethers.providers.Web3Provider(ethereum)
 					const signer = provider.getSigner()
 					const nftContract = new ethers.Contract(
 						nftContractAddress,
 						NFT.abi,
 						signer
-					)
+					)*/
 
 				let nftTx = await nftContract.mint()
 				console.log('Mining....', nftTx.hash)
