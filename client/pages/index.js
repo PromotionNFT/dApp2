@@ -104,7 +104,7 @@ const mint = () => {
 				const localhostChainId = `0x${Number(devChainId).toString(16)}`
 	
 				if (chainId !== polygonChainId && chainId !== localhostChainId) {
-					alert('You are not connected to the Polygon Network!')
+//					alert('You are not connected to the Polygon Network!')
 					return
 				}
 
