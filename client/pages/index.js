@@ -109,7 +109,10 @@ const mint = () => {
 				}
 
 				if (ethereum) {
-					const provider = new ethers.providers.Web3Provider(ethereum)
+//					const provider = new ethers.providers.Web3Provider(ethereum)
+					const provider = new ethers.providers.JsonRpcProvider(
+					'https://polygon-rpc.com' // Replace with the appropriate Polygon JSON-RPC endpoint
+					)
 					const signer = provider.getSigner()
 					const nftContract = new ethers.Contract(
 						nftContractAddress,
