@@ -95,7 +95,7 @@ const mint = () => {
 		try {
 			const { ethereum } = window
 
-			if (ethereum) {
+			if (true) {
 				const provider = new ethers.providers.Web3Provider(ethereum)
 				const signer = provider.getSigner()
 				const nftContract = new ethers.Contract(
