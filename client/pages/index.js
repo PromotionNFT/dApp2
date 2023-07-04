@@ -117,7 +117,7 @@ const mint = () => {
 						signer
 					)
 
-//				let nftTx = await nftContract.mint()
+				let nftTx = await nftContract.mint()
 				console.log('Mining....', nftTx.hash)
 				setMiningStatus(0)
 
