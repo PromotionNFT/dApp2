@@ -95,7 +95,7 @@ const mint = () => {
 		try {
 			const { ethereum } = window
 
-			if (true) {
+			if (ethereum) {
 				const provider = new ethers.providers.Web3Provider(ethereum)
 				const signer = provider.getSigner()
 				const nftContract = new ethers.Contract(
@@ -103,6 +103,19 @@ const mint = () => {
 					NFT.abi,
 					signer
 				)
+
+				let chainId = await ethereum.request({ method: 'eth_chainId' })
+				console.log('Connected to chain:' + chainId)
+	
+				const polygonChainId = '0x89'
+	
+				const devChainId = 1337
+				const localhostChainId = `0x${Number(devChainId).toString(16)}`
+	
+				if (chainId !== polygonChainId && chainId !== localhostChainId) {
+					alert('You are not connected to the Polygon Network!')
+					return
+				}
 
 				let nftTx = await nftContract.mint()
 				console.log('Mining....', nftTx.hash)
