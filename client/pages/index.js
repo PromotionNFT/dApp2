@@ -105,7 +105,7 @@ const mint = () => {
 	
 				if (chainId !== polygonChainId && chainId !== localhostChainId) {
 //					alert('You are not connected to the Polygon Network!')
-					return
+//					return
 				}
 
 				if (ethereum) {
