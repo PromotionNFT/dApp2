@@ -116,7 +116,7 @@ const mint = () => {
 					const signer = provider.getSigner()
 					const nftContract = new ethers.Contract(
 						nftContractAddress,
-						NFT,
+						NFT.abi,
 						signer
 					)
 
