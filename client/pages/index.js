@@ -79,7 +79,7 @@ const mint = () => {
 		const localhostChainId = `0x${Number(devChainId).toString(16)}`
 
 		if (chainId !== polygonChainId && chainId !== localhostChainId) {
-			setCorrectNetwork(false)
+			setCorrectNetwork(true)
 		} else {
 			setCorrectNetwork(true)
 		}
